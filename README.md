@@ -1,6 +1,6 @@
 # tunnel9
 
-A terminal user interface (TUI) for managing SSH tunnels.  Tunnel9 provides a simple, efficient way to manage multiple SSH port forwarding configurations with real-time monitoring of throughput and latency.
+A terminal user interface (TUI) for managing SSH tunnels. Tunnel9 provides a simple, efficient way to manage multiple SSH port forwarding configurations with real-time monitoring of throughput and latency.
 
 ![Tunnel9 Screenshot](docs/tui.gif)
 
@@ -107,7 +107,7 @@ tunnels:
 Searches for configuration in the following order:
  1. Command line flag `--config`
  2. ./.tunnel9.yaml
- 3. ~/.local/state/tunnel9/config.yaml  <- default
+ 3. ~/.config/tunnel9/config.yaml <- default
 
 
 ## Development
@@ -153,14 +153,14 @@ graph TD
     A[Start] --> D{Bastion Host?}
     D -->|Yes| E[Connect to Bastion]
     E --> F[Connect to Remote Host]
-    D -->|No| F
-    F -->|Status: Connecting| G[SSH Connection Attempt]
-    G -->|SSH Connection Established| H[Status: Active]
+| D --> | No                         | F                         |
+| F --> | Status: Connecting         | G[SSH Connection Attempt] |
+| G --> | SSH Connection Established | H[Status: Active]         |
     H --> I[Establish Remote Connection]
     I --> J[Forward Data]
     J --> K[Update Metrics]
     K --> L{Connection Dropped?}
-    L -->|Yes| M[Reconnect]
-    L -->|No| J
-    M -->|Status: Connecting| F
+| L --> | Yes                | M[Reconnect] |
+| L --> | No                 | J            |
+| M --> | Status: Connecting | F            |
 ```
