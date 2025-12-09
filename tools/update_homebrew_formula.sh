@@ -28,26 +28,26 @@ echo "Linux AMD64 SHA256: $LINUX_AMD64_SHA"
 cat > homebrew/Formula/tunnel9.rb << EOF
 class Tunnel9 < Formula
   desc "Terminal user interface (TUI) for managing SSH tunnels"
-  homepage "https://github.com/sio2boss/tunnel9"
+  homepage "https://github.com/luk3ya0/tunnel9"
   version "${VERSION}"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/sio2boss/tunnel9/releases/download/v#{version}/tunnel9-v#{version}-apple-arm64.tar.gz"
+      url "https://github.com/luk3ya0/tunnel9/releases/download/v#{version}/tunnel9-v#{version}-apple-arm64.tar.gz"
       sha256 "${APPLE_ARM64_SHA}"
     else
-      url "https://github.com/sio2boss/tunnel9/releases/download/v#{version}/tunnel9-v#{version}-apple-amd64.tar.gz"
+      url "https://github.com/luk3ya0/tunnel9/releases/download/v#{version}/tunnel9-v#{version}-apple-amd64.tar.gz"
       sha256 "${APPLE_AMD64_SHA}"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/sio2boss/tunnel9/releases/download/v#{version}/tunnel9-v#{version}-linux-arm64.tar.gz"
+      url "https://github.com/luk3ya0/tunnel9/releases/download/v#{version}/tunnel9-v#{version}-linux-arm64.tar.gz"
       sha256 "${LINUX_ARM64_SHA}"
     else
-      url "https://github.com/sio2boss/tunnel9/releases/download/v#{version}/tunnel9-v#{version}-linux-amd64.tar.gz"
+      url "https://github.com/luk3ya0/tunnel9/releases/download/v#{version}/tunnel9-v#{version}-linux-amd64.tar.gz"
       sha256 "${LINUX_AMD64_SHA}"
     end
   end
@@ -63,4 +63,4 @@ end
 EOF
 
 echo "1. Commit and push the changes to homebrew-tap"
-echo "2. Users can then install with: brew install sio2boss/tap/tunnel9" 
+echo "2. Users can then install with: brew install luk3ya0/tap/tunnel9" 

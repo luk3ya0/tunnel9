@@ -11,13 +11,13 @@ Many thanks to [How to Create An SSH Tunnel in Go](https://elliotchance.medium.c
 ### Homebrew (Recommended)
 
 ```bash
-brew install sio2boss/tap/tunnel9
+brew install luk3ya0/tap/tunnel9
 ```
 
 ### Install Script
 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/sio2boss/tunnel9/main/tools/install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/luk3ya0/tunnel9/main/tools/install.sh)"
 ```
 
 ### Manual Installation

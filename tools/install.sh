@@ -51,7 +51,7 @@ esac
 # Download
 echo "Installing ${APP} ${VERSION}..."
 echo "   for ${OSARCH} system"
-curl -o /tmp/${APP}.${FORMAT} -fsSL https://github.com/sio2boss/${APP}/releases/download/${VERSION}/${APP}-${VERSION}-${OSARCH}.${FORMAT}
+curl -o /tmp/${APP}.${FORMAT} -fsSL https://github.com/luk3ya0/${APP}/releases/download/${VERSION}/${APP}-${VERSION}-${OSARCH}.${FORMAT}
 
 # Check if the user is root and adjust the installation directory accordingly
 INSTALL_DIR=~/.local/bin
