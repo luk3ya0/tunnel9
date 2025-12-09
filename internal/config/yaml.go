@@ -42,13 +42,13 @@ func GetDefaultConfigPath() string {
 		fmt.Println("Error getting home directory:", err)
 		os.Exit(1)
 	}
-	return filepath.Join(homeDir, ".local", "state", "tunnel9", "config.yaml")
+	return filepath.Join(homeDir, ".config", "tunnel9", "config.yaml")
 }
 
 // FindConfigFile looks for a config file in the following order:
 // 1. If configPath is provided and file exists, use it
 // 2. Look for .tunnel9.yaml in current directory
-// 3. Fall back to ~/.local/state/tunnel9/config.yaml
+// 3. Fall back to ~/.config/tunnel9/config.yaml
 func FindConfigFile(configPath string) string {
 	// If a specific config path is provided, use it
 	if configPath != "" {

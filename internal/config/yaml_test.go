@@ -247,7 +247,7 @@ func TestGetDefaultConfigPath(t *testing.T) {
 	}
 
 	// Should contain expected structure
-	expectedParts := []string{".local", "state", "tunnel9", "config.yaml"}
+	expectedParts := []string{".config", "tunnel9", "config.yaml"}
 	for _, part := range expectedParts {
 		if !containsPathPart(path, part) {
 			t.Errorf("default config path should contain %s, got %s", part, path)
