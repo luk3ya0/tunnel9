@@ -8,38 +8,50 @@ Many thanks to [How to Create An SSH Tunnel in Go](https://elliotchance.medium.c
 
 ## Installation
 
-### Homebrew (Recommended)
+### Homebrew (推荐)
+
+首次安装需要先添加 tap ：
+
+```bash
+# 添加 tap
+brew tap luk3ya0/tap
+
+# 安装 tunnel9
+brew install tunnel9
+```
+
+或者一步完成：
 
 ```bash
 brew install luk3ya0/tap/tunnel9
 ```
 
-### Install Script
+### 安装脚本
 
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/luk3ya0/tunnel9/main/tools/install.sh)"
 ```
 
-### Manual Installation
+### 手动安装
 
-1. Download the latest release from the releases page
-2. Extract the archive:
+1. 从 [Releases 页面](https://github.com/luk3ya0/tunnel9/releases) 下载最新版本
+2. 解压文件：
    ```bash
    tar xzf tunnel9-*.tar.gz
    ```
-3. Copy the binary to your local bin directory:
+3. 复制二进制文件到本地 bin 目录：
    ```bash
    mkdir -p ~/.local/bin
    mv tunnel9 ~/.local/bin/
    chmod +x ~/.local/bin/tunnel9
    ```
-4. Ensure `~/.local/bin` is in your PATH. Add this to your `~/.bashrc` or `~/.zshrc`:
+4. 确保 `~/.local/bin` 在您的 PATH 中。添加以下内容到 `~/.bashrc` 或 `~/.zshrc`：
    ```bash
    export PATH="$HOME/.local/bin:$PATH"
    ```
-5. Restart your shell or source your rc file:
+5. 重启 shell 或重新加载配置文件：
    ```bash
-   source ~/.bashrc  # or source ~/.zshrc
+   source ~/.bashrc  # 或 source ~/.zshrc
    ```
 
 
