@@ -11,7 +11,30 @@ import (
 	"golang.org/x/crypto/ssh"
 )
 
+func expandPath(path string) string {
+	if len(path) == 0 || path[0] != '~' {
+		return path
+	}
+
+	home, err := os.UserHomeDir()
+	if err != nil {
+		return path
+	}
+
+	if len(path) == 1 {
+		return home
+	}
+
+	if path[1] == '/' || path[1] == filepath.Separator {
+		return filepath.Join(home, path[2:])
+	}
+
+	return path
+}
+
 func loadPrivateKey(t *Tunnel, keyPath string) (ssh.AuthMethod, error) {
+	// Expand ~ in path
+	keyPath = expandPath(keyPath)
 	key, err := os.ReadFile(keyPath)
 	if err != nil {
 		t.logf("Failed to find key at %s", keyPath)
