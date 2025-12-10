@@ -3,7 +3,7 @@
 # Figure out OS and ARCH
 OS="`uname`"
 ARCH="`uname -m`"
-VERSION=v1.0.3
+VERSION=v1.0.4
 OSARCH=
 APP=tunnel9
 FORMAT=tar.gz
