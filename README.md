@@ -8,50 +8,50 @@ Many thanks to [How to Create An SSH Tunnel in Go](https://elliotchance.medium.c
 
 ## Installation
 
-### Homebrew (推荐)
+### Homebrew (Recommended)
 
-首次安装需要先添加 tap ：
+For first-time installation, add the tap first:
 
 ```bash
-# 添加 tap
+# Add tap
 brew tap luk3ya0/tap
 
-# 安装 tunnel9
+# Install tunnel9
 brew install tunnel9
 ```
 
-或者一步完成：
+Or install in one command:
 
 ```bash
 brew install luk3ya0/tap/tunnel9
 ```
 
-### 安装脚本
+### Install Script
 
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/luk3ya0/tunnel9/main/tools/install.sh)"
 ```
 
-### 手动安装
+### Manual Installation
 
-1. 从 [Releases 页面](https://github.com/luk3ya0/tunnel9/releases) 下载最新版本
-2. 解压文件：
+1. Download the latest release from the [Releases page](https://github.com/luk3ya0/tunnel9/releases)
+2. Extract the archive:
    ```bash
    tar xzf tunnel9-*.tar.gz
    ```
-3. 复制二进制文件到本地 bin 目录：
+3. Copy the binary to your local bin directory:
    ```bash
    mkdir -p ~/.local/bin
    mv tunnel9 ~/.local/bin/
    chmod +x ~/.local/bin/tunnel9
    ```
-4. 确保 `~/.local/bin` 在您的 PATH 中。添加以下内容到 `~/.bashrc` 或 `~/.zshrc`：
+4. Ensure `~/.local/bin` is in your PATH. Add this to your `~/.bashrc` or `~/.zshrc`:
    ```bash
    export PATH="$HOME/.local/bin:$PATH"
    ```
-5. 重启 shell 或重新加载配置文件：
+5. Restart your shell or source your rc file:
    ```bash
-   source ~/.bashrc  # 或 source ~/.zshrc
+   source ~/.bashrc  # or source ~/.zshrc
    ```
 
 
@@ -165,14 +165,14 @@ graph TD
     A[Start] --> D{Bastion Host?}
     D -->|Yes| E[Connect to Bastion]
     E --> F[Connect to Remote Host]
-| D --> | No                         | F                         |
-| F --> | Status: Connecting         | G[SSH Connection Attempt] |
-| G --> | SSH Connection Established | H[Status: Active]         |
+    D -->|No| F
+    F -->|Status: Connecting| G[SSH Connection Attempt]
+    G -->|SSH Connection Established| H[Status: Active]
     H --> I[Establish Remote Connection]
     I --> J[Forward Data]
     J --> K[Update Metrics]
     K --> L{Connection Dropped?}
-| L --> | Yes                | M[Reconnect] |
-| L --> | No                 | J            |
-| M --> | Status: Connecting | F            |
+    L -->|Yes| M[Reconnect]
+    L -->|No| J
+    M -->|Status: Connecting| F
 ```
